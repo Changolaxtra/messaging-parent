@@ -1,7 +1,7 @@
 package dan.rojas.epam.rest.controller;
 
 import dan.rojas.epam.dto.Event;
-import dan.rojas.epam.service.EventServiceDb;
+import dan.rojas.epam.service.db.EventServiceDb;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
