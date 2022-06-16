@@ -2,6 +2,8 @@ package dan.rojas.epam.rest.controller;
 
 import dan.rojas.epam.dto.Event;
 import dan.rojas.epam.service.EventServiceDb;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +18,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/event")
+@RequestMapping("/events")
+@Api(value = "Swagger2DemoRestController", description = "REST APIs related to Student Entity!!!!")
 public class EventServiceController {
 
   private final EventServiceDb eventServiceDb;
 
   @GetMapping
+  @ApiOperation(value = "Get list of Students in the System ", response = Iterable.class, tags = "getStudents")
   public List<Event> getAllEvents() {
     return eventServiceDb.getAllEvents();
   }

@@ -6,7 +6,6 @@ import dan.rojas.epam.repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,13 +22,8 @@ public class EventServiceDb implements EventService {
 
   @Override
   public Event createEvent(Event event) {
-    try {
-      log.info("Saving event {}", event);
-      eventRepository.save(getAsEntity(event));
-    } catch (DataAccessException dataAccessException) {
-      log.error("Error saving event", dataAccessException);
-      event = null;
-    }
+    log.info("Creating event {}...", event);
+    eventRepository.save(getAsEntity(event));
     return event;
   }
 
