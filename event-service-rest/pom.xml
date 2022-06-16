@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>dan.rojas.epam</groupId>
 	<artifactId>event-service-rest</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>event-service-rest</name>
 	<description>Implementation</description>
 	<properties>
@@ -51,6 +51,13 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
