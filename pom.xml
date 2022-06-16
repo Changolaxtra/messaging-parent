@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework</groupId>
-    <artifactId>gs-multi-module</artifactId>
+    <artifactId>event-service-parent</artifactId>
     <version>0.1.0</version>
     <packaging>pom</packaging>
 
@@ -13,6 +13,7 @@
         <module>event-service-api</module>
         <module>event-service-impl</module>
         <module>event-service-rest</module>
+        <module>event-messaging</module>
     </modules>
 
 </project>
