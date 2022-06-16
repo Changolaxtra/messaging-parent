@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  event-service-rest:
+    image: openjdk:8-alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./event-service-rest/target/event-service-rest-1.0.jar:/app.jar"
+    command: "java -jar app.jar"
+    networks:
+      - consul-net
+networks:
+  consul-net:
+    driver: bridge
