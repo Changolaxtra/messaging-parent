@@ -2,8 +2,10 @@ package dan.rojas.epam.messaging;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
+@EnableKafka
 public class EventMessagingApplication {
 
 	public static void main(String[] args) {

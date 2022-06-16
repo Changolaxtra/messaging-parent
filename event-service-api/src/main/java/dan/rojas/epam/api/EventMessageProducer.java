@@ -2,8 +2,8 @@ package dan.rojas.epam.api;
 
 import dan.rojas.epam.dto.Event;
 
-public interface EventMessaging {
+public interface EventMessageProducer {
   void createEvent(Event event);
   void updateEvent(Event event);
-  void deleteEvent(Long id);
+  void deleteEvent(Event event);
 }

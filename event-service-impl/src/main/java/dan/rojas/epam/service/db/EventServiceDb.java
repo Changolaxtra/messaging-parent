@@ -1,6 +1,6 @@
 package dan.rojas.epam.service.db;
 
-import dan.rojas.epam.api.EventMessaging;
+import dan.rojas.epam.api.EventMessageProducer;
 import dan.rojas.epam.api.EventService;
 import dan.rojas.epam.dto.Event;
 import dan.rojas.epam.repository.EventRepository;
@@ -20,13 +20,13 @@ import java.util.stream.StreamSupport;
 public class EventServiceDb implements EventService {
 
   private final EventRepository eventRepository;
-  private final EventMessaging eventMessaging;
+  private final EventMessageProducer eventMessageProducer;
 
   @Override
   public Event createEvent(Event event) {
     log.info("Creating event {}...", event);
     eventRepository.save(getAsEntity(event));
-    eventMessaging.createEvent(event);
+    eventMessageProducer.createEvent(event);
     return event;
   }
 
@@ -37,7 +37,7 @@ public class EventServiceDb implements EventService {
     if (optionalEvent.isPresent()) {
       event.setEventId(id);
       eventRepository.save(getAsEntity(event));
-      eventMessaging.updateEvent(event);
+      eventMessageProducer.updateEvent(event);
     } else {
       log.info("Event with id {} does not exist", event.getEventId());
       event = null;
@@ -61,7 +61,7 @@ public class EventServiceDb implements EventService {
     if (optionalEvent.isPresent()) {
       event = getAsDto(optionalEvent.get());
       eventRepository.deleteById(id);
-      eventMessaging.deleteEvent(id);
+      eventMessageProducer.deleteEvent(event);
     } else {
       log.info("Event with id {} does not exist", id);
       event = null;
