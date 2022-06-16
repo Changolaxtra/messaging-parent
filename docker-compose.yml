@@ -60,10 +60,14 @@ services:
     networks:
       - msg-net
   rabbitmq:
-    image: 'bitnami/rabbitmq:3.10'
+    image: 'rabbitmq:3.7-management'
     container_name: 'rabbitmq-server'
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
     ports:
       - '15672:15672'
+      - '5672:5672'
     networks:
       - msg-net
 networks:

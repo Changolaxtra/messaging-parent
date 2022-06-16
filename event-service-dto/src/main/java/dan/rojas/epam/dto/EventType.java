@@ -1,5 +1,7 @@
 package dan.rojas.epam.dto;
 
-public enum EventType {
+import java.io.Serializable;
+
+public enum EventType implements Serializable {
   WORKSHOP, TECH_TALK;
 }

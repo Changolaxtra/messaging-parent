@@ -2,7 +2,6 @@ package dan.rojas.epam.messaging.service;
 
 import dan.rojas.epam.api.EventMessageConsumer;
 import dan.rojas.epam.dto.Event;
-import dan.rojas.epam.messaging.config.KafkaConsumerConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
